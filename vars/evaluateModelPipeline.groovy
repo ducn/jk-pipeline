@@ -8,7 +8,7 @@ def call(Map parameters) {
       print(datasets)
       for (dataset in datasets.records) {
             print("$dataset.package_path")
-            sh "wget $API_DOMAIN/$dataset.package_path -P /data/model/"
+            sh "wget $API_DOMAIN$dataset.package_path -P /data/model/"
       }
     }
     stage ('Saving accuracy score') {
@@ -18,7 +18,7 @@ def call(Map parameters) {
           version:"1.0.0",
           accuracy:"1",
       ]
-      response = httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: body, url: "https://$API_DOMAIN/api/models/save_result", validResponseCodes: '200'
+      response = httpRequest consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: body, url: "$API_DOMAIN/api/models/save_result", validResponseCodes: '200'
       print(response)
     }
   }
