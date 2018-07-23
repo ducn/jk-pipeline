@@ -1,4 +1,4 @@
-import is.cinnmaon.JenkinsHttpClient
+import is.cinnamon.JenkinsHttpClient
 
 def print_ghibli_films() {
     JenkinsHttpClient http = new JenkinsHttpClient()
