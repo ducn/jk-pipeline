@@ -6,7 +6,7 @@ def call(Map parameters) {
       print(response.content)
       datasets = readJSON text:response.content
       print(datasets)
-      for (dataset in datasets) {
+      for (dataset in datasets.records) {
             print("$dataset.package_path")
             sh "wget $API_DOMAIN/$dataset.package_path -P /data/model/"
       }
