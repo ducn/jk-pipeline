@@ -15,7 +15,7 @@ def call(Map parameters) {
       def body = """
                     {"dataset_id": "t9iy", "model_id":"222","version":"0.0.1","accuracy":100}
                  """
-      response = httpRequest contentType: 'APPLICATION_FORM', httpMode: 'POST', requestBody: body, url: "$API_DOMAIN/api/models/save_result", validResponseCodes: '200'
+      response = httpRequest contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: body, url: "$API_DOMAIN/api/models/save_result", validResponseCodes: '200'
       print(response.content)
     }
   }
